@@ -1376,8 +1376,8 @@ styles:
         mix: [space-tile, generative-random]
         shaders:
             defines:
-                PIXELATE_SCALE: 5.
-                PIXELATE_COLOR: color.rgb*.5
+                PIXELATE_SCALE: 12.
+                PIXELATE_COLOR: color.rgb*.65
                 PIXELATE_BACKGROUND_COLOR: color.rgb
             blocks:
                 color: |
