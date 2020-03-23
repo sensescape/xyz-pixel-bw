@@ -1021,7 +1021,7 @@ layers:
 
     places:
         data: { source: mapzen, layer: places }
-        enabled: true
+        enabled: false
         filter:
             name: true
         draw:
@@ -1267,10 +1267,10 @@ styles:
         shaders:
             uniforms:
                 u_colors:
-                    - [0.155,0.155,0.155] # lower-left
-                    - [0.090,0.090,0.090] # lower-right
-                    - [0.220,0.220,0.220] # upper-left
-                    - [0.190,0.190,0.190] # upper-right
+                    - [1.000,1.000,1.000] # lower-left
+                    - [0.600,0.600,0.600] # lower-right
+                    - [1.000,1.000,1.000] # upper-left
+                    - [1.000,1.000,1.000] # upper-right
 
     grid-gradient-water:
         base: polygons
@@ -1278,76 +1278,10 @@ styles:
         shaders:
             uniforms:
                 u_colors:
-                    - [0.080,0.080,0.080] # lower-left
+                    - [0.000,0.000,0.000] # lower-left
                     - [0.000,0.000,0.000] # lower-right
-                    - [0.120,0.120,0.120] # upper-left
-                    - [0.040,0.040,0.040] # upper-right
-
-    grid-gradient-green:
-        base: polygons
-        mix: [grid-gradient]
-        shaders:
-            uniforms:
-                u_colors:
-                    - [0.090,0.090,0.090] # lower-left
-                    - [0.160,0.160,0.160] # lower-right
-                    - [0.280,0.280,0.280] # upper-left
-                    - [0.266,0.266,0.266] # upper-right
-
-    grid-gradient-garden:
-        base: polygons
-        mix: [grid-gradient]
-        shaders:
-            uniforms:
-                u_colors:
-                    - [0.443,0.750,0.576] # lower-left
-                    - [0.890,0.890,0.890] # lower-right
-                    - [0.920,0.920,0.920] # upper-left
-                    - [0.952,0.952,0.952] # upper-right
-
-    grid-gradient-farm:
-        base: polygons
-        mix: [grid-gradient]
-        shaders:
-            uniforms:
-                u_colors:
-                    - [0.828,0.860,0.714] # lower-left
-                    - [0.890,0.890,0.890] # lower-right
-                    - [0.920,0.920,0.920] # upper-left
-                    - [0.952,0.952,0.952] # upper-right
-
-    grid-gradient-university:
-        base: polygons
-        mix: [grid-gradient]
-        shaders:
-            uniforms:
-                u_colors:
-                    - [0.910,0.871,0.855] # lower-left
-                    - [0.980,0.930,0.764] # lower-right
-                    - [0.920,0.920,0.920] # upper-left
-                    - [0.980,0.950,0.902] # upper-right
-
-    grid-gradient-beach:
-        base: polygons
-        mix: [grid-gradient]
-        shaders:
-            uniforms:
-                u_colors:
-                    - [1.000,0.916,0.540] # lower-left
-                    - [0.960,0.960,0.960] # lower-right
-                    - [0.990,0.990,0.990] # upper-left
-                    - [0.962,0.962,0.962] # upper-right
-
-    grid-gradient-golf:
-        base: polygons
-        mix: [grid-gradient]
-        shaders:
-            uniforms:
-                u_colors:
-                    - [0.710,0.850,0.629] # lower-left
-                    - [0.890,0.890,0.890] # lower-right
-                    - [0.920,0.920,0.920] # upper-left
-                    - [0.970,0.964,0.912] # upper-right
+                    - [0.250,0.250,0.250] # upper-left
+                    - [0.000,0.000,0.000] # upper-right
 
     grid-gradient-buildings:
         base: polygons
@@ -1355,10 +1289,21 @@ styles:
         shaders:
             uniforms:
                 u_colors:
-                    - [0.030,0.030,0.030] # lower-left
-                    - [0.072,0.072,0.072] # lower-right
-                    - [0.110,0.110,0.110] # upper-left
-                    - [0.212,0.212,0.212] # upper-right
+                    - [0.750,0.750,0.750] # lower-left
+                    - [0.750,0.750,0.750] # lower-right
+                    - [0.750,0.750,0.750] # upper-left
+                    - [0.250,0.250,0.250] # upper-right
+
+    grid-gradient-green:
+        base: polygons
+        mix: [grid-gradient]
+        shaders:
+            uniforms:
+                u_colors:
+                    - [0.650,0.650,0.650] # lower-left
+                    - [0.920,0.920,0.920] # lower-right
+                    - [0.920,0.920,0.920] # upper-left
+                    - [0.920,0.920,0.920] # upper-right
 
     grid-gradient-university-bldgs:
         base: polygons
