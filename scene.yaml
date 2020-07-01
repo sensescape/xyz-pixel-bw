@@ -91,7 +91,7 @@ fonts:
 
 scene:
     background:
-        color: [0.000,0.000,0 .000]
+        color: [0.500,0.500,0.500]
 
 sources:
     # mapzen:
@@ -174,7 +174,7 @@ layers:
 
     landuse:
         data: { source: mapzen }
-        enabled: true
+        enabled: false
         draw:
             polygons:
                 order: global.feature_order
@@ -319,7 +319,7 @@ layers:
 
     roads:
         data: { source: mapzen, layer: roads }
-        enabled: true
+        enabled: false
         draw:
             lines:
                 visible: true
@@ -1275,36 +1275,46 @@ styles:
 
     grid-gradient-earth:
         base: polygons
-        mix: [grid-gradient]
+        mix: [grid-gradient5]
         shaders:
             uniforms:
+                # u_colors:
+                #     - [0.520,0.520,0.520] # lower-left
+                #     - [0.520,0.520,0.520] # lower-right
+                #     - [0.520,0.520,0.520] # upper-left
+                #     - [0.490,0.490,0.490] # upper-right
                 u_colors:
-                    - [1.000,1.000,1.000] # lower-left
-                    - [0.600,0.600,0.600] # lower-right
-                    - [1.000,1.000,1.000] # upper-left
-                    - [1.000,1.000,1.000] # upper-right
+                    - [0.650,0.650,0.650] # lower-left
+                    - [0.650,0.650,0.650] # lower-right
+                    - [0.650,0.650,0.650] # upper-left
+                    - [0.620,0.620,0.620] # upper-right
 
     grid-gradient-water:
         base: polygons
-        mix: [grid-gradient]
+        mix: [grid-gradient5]
         shaders:
             uniforms:
+                # u_colors:
+                #     - [0.150,0.150,0.150] # lower-left
+                #     - [0.150,0.150,0.150] # lower-right
+                #     - [0.150,0.150,0.150] # upper-left
+                #     - [0.000,0.000,0.000]
                 u_colors:
-                    - [0.000,0.000,0.000] # lower-left
-                    - [0.000,0.000,0.000] # lower-right
-                    - [0.250,0.250,0.250] # upper-left
-                    - [0.000,0.000,0.000] # upper-right
+                    - [0.450,0.450,0.450] # lower-left
+                    - [0.450,0.450,0.450] # lower-right
+                    - [0.450,0.450,0.450] # upper-left
+                    - [0.400,0.400,0.400]
 
     grid-gradient-buildings:
         base: polygons
-        mix: [grid-gradient]
+        mix: [grid-gradient1]
         shaders:
             uniforms:
                 u_colors:
-                    - [0.790,0.790,0.790] # lower-left
-                    - [0.790,0.790,0.790] # lower-right
-                    - [0.790,0.790,0.790] # upper-left
-                    - [0.410,0.410,0.410] # upper-right
+                    - [0.250,0.250,0.250] # lower-left
+                    - [0.220,0.220,0.220] # lower-right
+                    - [0.250,0.250,0.250] # upper-left
+                    - [0.220,0.220,0.220] # upper-right
 
     grid-gradient-green:
         base: polygons
@@ -1369,6 +1379,58 @@ styles:
                         mix(u_colors[0], u_colors[1], f_st.x),
                         mix(u_colors[2], u_colors[3], f_st.x),
                         f_st.y
+                    );
+
+    grid-gradient5:
+        base: polygons
+        mix: [space-tile]
+        shaders:
+            uniforms:
+                u_colors:
+                    - [0.870,0.870,0.870] # lower-left
+                    - [0.890,0.890,0.890] # lower-right
+                    - [0.680,0.569,0.544] # upper-left
+                    - [0.902,0.902,0.902] # upper-right
+                u_grid_size: 5
+            # blocks:
+            #     color: |
+            #         vec2 st = getTileCoords();
+            #         vec2 f_st = fract(st * u_grid_size);
+            #         color.rgb = mix(
+            #             mix(u_colors[0], u_colors[1], f_st.x),
+            #             mix(u_colors[2], u_colors[3], f_st.x),
+            #             f_st.y
+            #         );
+
+            blocks:
+                color: |
+                    vec2 st = getTileCoords();
+                    vec2 f_st = fract(st * u_grid_size);
+                    color.rgb = mix(
+                        mix(u_colors[0], u_colors[1], f_st.x),
+                        mix(u_colors[2], u_colors[3], f_st.x),
+                        f_st.y/0.15
+                    );
+
+    grid-gradient1:
+        base: polygons
+        mix: [space-tile]
+        shaders:
+            uniforms:
+                u_colors:
+                    - [0.870,0.870,0.870] # lower-left
+                    - [0.890,0.890,0.890] # lower-right
+                    - [0.680,0.569,0.544] # upper-left
+                    - [0.902,0.902,0.902] # upper-right
+                u_grid_size: 15
+            blocks:
+                color: |
+                    vec2 st = getTileCoords();
+                    vec2 f_st = fract(st * u_grid_size);
+                    color.rgb = mix(
+                        mix(u_colors[0], u_colors[1], f_st.x*5.0),
+                        mix(u_colors[2], u_colors[3], f_st.x*1.5),
+                        f_st.y/0.65
                     );
 
     lines-pixelate:
