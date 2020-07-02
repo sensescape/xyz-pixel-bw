@@ -1033,7 +1033,7 @@ layers:
 
     places:
         data: { source: mapzen, layer: places }
-        enabled: false
+        enabled: true
         filter:
             name: true
         draw:
@@ -1042,7 +1042,7 @@ layers:
                 buffer: 3px
                 font:
                     family: global.text_font_family
-                    fill: [0.600,0.600,0.600]
+                    fill: [0.250,0.250,0.250]
             # END NOTE
 
         populated-places:
@@ -1054,7 +1054,7 @@ layers:
                     buffer: 42px
                     font:
                         size: [[5,9px],[8,10px],[12,11px]]
-                        stroke: { color: [0.070,0.070,0.070], width: 5px }
+                        stroke: { color: [0.700,0.700,0.700], width: 5px }
 
             # _text_early:
             #     filter: { $zoom: { max: 11 } }
@@ -1216,11 +1216,11 @@ layers:
                     text_wrap: 10
                     max_lines: 2
                     font:
-                        fill: [0.760,0.760,0.760]
+                        fill: [0.250,0.250,0.250]
                         size: [[11, 9px], [12, 10px], [13, 12px], [14, 16px], [16, 24px]]
                         weight: normal
                         transform: uppercase
-                        stroke: { color: [0.070,0.070,0.070], width: [[12, 4px], [13, 6px], [15, 8px]] }
+                        stroke: { color: [0.700,0.700,0.700], width: [[12, 4px], [13, 6px], [15, 8px]] }
 
             z13-up:
                 filter:
