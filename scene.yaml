@@ -174,7 +174,7 @@ layers:
 
     landuse:
         data: { source: mapzen }
-        enabled: false
+        enabled: true
         draw:
             polygons:
                 order: global.feature_order
@@ -190,7 +190,7 @@ layers:
             draw:
                 polygons:
                     style: grid-gradient-green
-                    color: [0.960,0.960,0.960]
+                    # color: [1.000,0.000,0.000]
                     visible: true
             us_national_park:
                 # yosemite national park, death valley national park, grand canyon national park
@@ -201,7 +201,7 @@ layers:
                 draw:
                     polygons:
                         style: grid-gradient-green
-                        color: [0.960,0.960,0.960]
+                        # color: [1.000,0.000,0.000]
                         visible: true
 
         conservation:
@@ -212,7 +212,7 @@ layers:
             draw:
                 polygons:
                     style: grid-gradient-green
-                    color: [0.960,0.960,0.960]
+                    # color: [1.000,0.000,0.000]
                     visible: true
 
         national_forest_level_6:
@@ -225,7 +225,7 @@ layers:
             draw:
                 polygons:
                     style: grid-gradient-green
-                    color: [0.960,0.960,0.960]
+                    # color: [1.000,0.000,0.000]
                     visible: true
         
         forest-landcover:
@@ -233,7 +233,7 @@ layers:
             draw:
                 polygons:
                     style: grid-gradient-green
-                    color: [0.960,0.960,0.960]
+                    # color: [1.000,0.000,0.000]
                     visible: true
 
         parks-and-national-forests-not-national-park:
@@ -248,7 +248,7 @@ layers:
             draw:
                 polygons:
                     style: grid-gradient-green
-                    color: [0.960,0.960,0.960]
+                    # color: [1.000,0.000,0.000]
                     visible: true
             national_park:
                 #filter: function() { return feature.name && (feature.name.indexOf('National Park') > -1); }
@@ -1278,32 +1278,22 @@ styles:
         mix: [grid-gradient5]
         shaders:
             uniforms:
-                # u_colors:
-                #     - [0.520,0.520,0.520] # lower-left
-                #     - [0.520,0.520,0.520] # lower-right
-                #     - [0.520,0.520,0.520] # upper-left
-                #     - [0.490,0.490,0.490] # upper-right
                 u_colors:
-                    - [0.670,0.670,0.670] # lower-left
-                    - [0.670,0.670,0.670] # lower-right
-                    - [0.670,0.670,0.670] # upper-left
-                    - [0.650,0.650,0.650] # upper-right
+                    - [0.700,0.700,0.700] # lower-left
+                    - [0.700,0.700,0.700] # lower-right
+                    - [0.700,0.700,0.700] # upper-left
+                    - [0.680,0.680,0.680] # upper-right
 
     grid-gradient-water:
         base: polygons
         mix: [grid-gradient5]
         shaders:
             uniforms:
-                # u_colors:
-                #     - [0.150,0.150,0.150] # lower-left
-                #     - [0.150,0.150,0.150] # lower-right
-                #     - [0.150,0.150,0.150] # upper-left
-                #     - [0.000,0.000,0.000]
                 u_colors:
-                    - [0.450,0.450,0.450] # lower-left
-                    - [0.450,0.450,0.450] # lower-right
-                    - [0.450,0.450,0.450] # upper-left
-                    - [0.400,0.400,0.400]
+                    - [0.480,0.480,0.480] # lower-left
+                    - [0.480,0.480,0.480] # lower-right
+                    - [0.480,0.480,0.480] # upper-left
+                    - [0.450,0.450,0.450]
 
     grid-gradient-buildings:
         base: polygons
@@ -1323,42 +1313,9 @@ styles:
             uniforms:
                 u_colors:
                     - [0.600,0.600,0.600] # lower-left
-                    - [0.910,0.910,0.910] # lower-right
-                    - [0.910,0.910,0.910] # upper-left
-                    - [0.910,0.910,0.910] # upper-right
-
-    grid-gradient-university-bldgs:
-        base: polygons
-        mix: [grid-gradient]
-        shaders:
-            uniforms:
-                u_colors:
-                    - [0.690,0.651,0.628] # lower-left
-                    - [0.932,0.932,0.932] # lower-right
-                    - [0.870,0.848,0.827] # upper-left
-                    - [1.000,0.893,0.800] # upper-right
-
-    grid-gradient-hospital-bldgs:
-        base: polygons
-        mix: [grid-gradient]
-        shaders:
-            uniforms:
-                u_colors:
-                    - [0.790,0.561,0.584] # lower-left
-                    - [0.932,0.932,0.932] # lower-right
-                    - [0.870,0.848,0.827] # upper-left
-                    - [1.000,0.870,0.870] # upper-right
-
-    grid-gradient-retail-bldgs:
-        base: polygons
-        mix: [grid-gradient]
-        shaders:
-            uniforms:
-                u_colors:
-                    - [0.780,0.632,0.546] # lower-left
-                    - [0.932,0.932,0.932] # lower-right
-                    - [0.870,0.848,0.827] # upper-left
-                    - [1.000,0.942,0.750] # upper-right
+                    - [0.830,0.830,0.830] # lower-right
+                    - [0.830,0.830,0.830] # upper-left
+                    - [0.830,0.830,0.830] # upper-right
 
     grid-gradient:
         base: polygons
@@ -1370,7 +1327,7 @@ styles:
                     - [0.890,0.890,0.890] # lower-right
                     - [0.680,0.569,0.544] # upper-left
                     - [0.902,0.902,0.902] # upper-right
-                u_grid_size: 16
+                u_grid_size: 5
             blocks:
                 color: |
                     vec2 st = getTileCoords();
