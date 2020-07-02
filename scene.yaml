@@ -319,7 +319,7 @@ layers:
 
     roads:
         data: { source: mapzen, layer: roads }
-        enabled: false
+        enabled: true
         draw:
             lines:
                 visible: true
@@ -1284,10 +1284,10 @@ styles:
                 #     - [0.520,0.520,0.520] # upper-left
                 #     - [0.490,0.490,0.490] # upper-right
                 u_colors:
-                    - [0.650,0.650,0.650] # lower-left
-                    - [0.650,0.650,0.650] # lower-right
-                    - [0.650,0.650,0.650] # upper-left
-                    - [0.620,0.620,0.620] # upper-right
+                    - [0.670,0.670,0.670] # lower-left
+                    - [0.670,0.670,0.670] # lower-right
+                    - [0.670,0.670,0.670] # upper-left
+                    - [0.650,0.650,0.650] # upper-right
 
     grid-gradient-water:
         base: polygons
@@ -1311,10 +1311,10 @@ styles:
         shaders:
             uniforms:
                 u_colors:
-                    - [0.250,0.250,0.250] # lower-left
-                    - [0.220,0.220,0.220] # lower-right
-                    - [0.250,0.250,0.250] # upper-left
-                    - [0.220,0.220,0.220] # upper-right
+                    - [0.510,0.510,0.510] # lower-left
+                    - [0.470,0.470,0.470] # lower-right
+                    - [0.510,0.510,0.510] # upper-left
+                    - [0.470,0.470,0.470] # upper-right
 
     grid-gradient-green:
         base: polygons
